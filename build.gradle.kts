@@ -1,5 +1,15 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+}
+
+apply {
+    plugin("war")
+}
+
 plugins {
     kotlin("jvm") version "1.4.31"
     application
@@ -18,7 +28,7 @@ repositories {
 dependencies {
     testImplementation(kotlin("test-junit"))
     val ktorVersion = "1.5.1"
-    implementation("io.ktor:ktor-server-cio:$ktorVersion")
+    implementation("io.ktor:ktor-server-servlet:$ktorVersion")
     implementation("io.ktor:ktor-serialization:$ktorVersion")
     implementation("ch.qos.logback:logback-classic:1.2.3")
 }
