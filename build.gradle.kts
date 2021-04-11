@@ -4,10 +4,14 @@ buildscript {
     repositories {
         mavenCentral()
     }
+    dependencies {
+        classpath("com.google.cloud.tools:appengine-gradle-plugin:1.3.4")
+    }
 }
 
 apply {
     plugin("war")
+    plugin("com.google.cloud.tools.appengine")
 }
 
 plugins {
@@ -31,6 +35,7 @@ dependencies {
     implementation("io.ktor:ktor-server-servlet:$ktorVersion")
     implementation("io.ktor:ktor-serialization:$ktorVersion")
     implementation("ch.qos.logback:logback-classic:1.2.3")
+    implementation("com.google.appengine:appengine:1.9.60")
 }
 
 tasks.test {
